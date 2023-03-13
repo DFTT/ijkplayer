@@ -321,6 +321,9 @@ static IJKAVMoviePlayerController* instance;
     }
     
     self.view = nil;
+    
+    // 这里调用
+    [[IJKAudioKit sharedInstance] removeAudioSessionObserver];
 }
 
 - (UIImage *)thumbnailImageAtCurrentTime

@@ -30,6 +30,8 @@
 
 + (IJKAudioKit *)sharedInstance;
 - (void)setupAudioSession;
+// fix: 进入前台后 打断其它APP播放的音乐
+- (void)removeAudioSessionObserver;
 - (BOOL)setActive:(BOOL)active;
 
 @end

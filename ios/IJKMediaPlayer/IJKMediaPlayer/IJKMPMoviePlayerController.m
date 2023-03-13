@@ -100,6 +100,8 @@
 - (void)shutdown
 {
     // do nothing
+    // 这里调用
+    [[IJKAudioKit sharedInstance] removeAudioSessionObserver];
 }
 
 -(int64_t)numberOfBytesTransferred

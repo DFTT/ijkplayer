@@ -570,6 +570,9 @@ inline static int getPlayerOption(IJKFFOptionCategory category)
     [self setScreenOn:NO];
 
     [self performSelectorInBackground:@selector(shutdownWaitStop:) withObject:self];
+    
+    // 这里调用
+    [[IJKAudioKit sharedInstance] removeAudioSessionObserver];
 }
 
 - (void)shutdownWaitStop:(IJKFFMoviePlayerController *) mySelf
@@ -599,6 +602,8 @@ inline static int getPlayerOption(IJKFFOptionCategory category)
     __unused id weakijkHolder = (__bridge_transfer IJKWeakHolder*)ijkmp_set_ijkio_inject_opaque(_mediaPlayer, NULL);
     ijkmp_dec_ref_p(&_mediaPlayer);
 
+    _view = nil;
+    _glView = nil;
     [self didShutdown];
 }
 
